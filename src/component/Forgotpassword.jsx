@@ -8,7 +8,7 @@ function Login() {
     const{resetpassword}=useAuth();
     const [error,setError]=useState("");
     const [loading,setLoading]=useState(false);
-    const [massage,setmassage]=useState(false);
+    const [massage,setmassage]=useState("");
 
     
 
@@ -36,7 +36,7 @@ function Login() {
                 <h2 className="text-center mb-4">
                     LogIn
                 </h2>
-                {massage && <Alert variant="success">{error}</Alert>}
+                {massage && <Alert variant="success">{massage}</Alert>}
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
