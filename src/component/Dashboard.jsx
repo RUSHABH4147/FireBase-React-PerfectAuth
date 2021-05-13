@@ -25,6 +25,7 @@ function Dashboard() {
             <h2 className="text-center mb-4">
                     PROFILE
                 </h2>
+                <img src={currentUser.photoURL ||" https://via.placeholder.com/100" } width="100" height="100" alt="profile photo"  />
                 {error && <Alert variant="danger">{error}</Alert>}
                 <strong>Email :</strong>{currentUser.email}
                 <Link to="/update-profile" className="btn btn-primary w-100 mt-4">Update Profile</Link>
