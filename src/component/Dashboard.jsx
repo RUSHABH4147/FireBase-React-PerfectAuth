@@ -1,39 +1,76 @@
-import React, {useState} from 'react';
-import {Card , Button , Alert }from "react-bootstrap";
-import { Link , useHistory} from 'react-router-dom';
-import { useAuth } from "./Authcontext"
+import React, { useEffect } from "react";
+import { Card } from "react-bootstrap";
+import { useAuth } from "./Authcontext";
 
 function Dashboard() {
-    const [error,setError]=useState("");
-    const {currentUser , Logout}=useAuth();
-    const history = useHistory();
-    async function handelLogout(){
-        setError("")
-        try{
-            await Logout()
-            history.push("/login")
-        }
-        catch{
-            setError("failed to logout ")
-        }
+  const { currentUser, userdata, setuserdata, db } = useAuth();
 
-    }
-    return (
-        <>
-        <Card>
-            <Card.Body>
-            <h2 className="text-center mb-4">
-                    PROFILE
-                </h2>
-                <img src={currentUser.photoURL ||" https://via.placeholder.com/100" } width="100" height="100" alt="profile photo"  />
-                {error && <Alert variant="danger">{error}</Alert>}
-                <strong>Email :</strong>{currentUser.email}
-                <Link to="/update-profile" className="btn btn-primary w-100 mt-4">Update Profile</Link>
-            </Card.Body>
-        </Card>
-        <Button variant="link" className="mt-3" onClick={handelLogout}>Logout</Button>
-        </>
-    )
+  useEffect(() => {
+    setuserdata([]);
+    const fetchdatabase = async () => {
+      const docref = await db.collection("users").doc(currentUser.uid);
+      docref
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            setuserdata(doc.data());
+          } else {
+            console.log("no file found with uid");
+          }
+        })
+        .catch((error) => {
+          console.log("Error getting document:", error);
+        });
+    };
+    return fetchdatabase();
+  }, []);
+  return (
+    <>
+    <div className="w-50 " style={{ maxWidth: "400px" ,    margin: "auto",
+          "margin-top" : " 10%" , }}>
+      <Card style={{   position: "inherit "}} >
+        <Card.Body>
+          <h2 className="text-center mb-4">Profile</h2>
+          {userdata.avatar ? ( <div>
+            <a href={userdata.avatar} className="img-thumbnail">
+              <img
+                src={userdata.avatar || " https://via.placeholder.com/100"}
+                className="img-thumbnail"
+                width="100"
+                height="100"
+                alt="databaseimg"
+              />{" "}
+            </a>
+            <br />
+            <strong>Email :</strong>
+              {userdata.email}
+            </div>
+          ) : (
+            <div>
+            <a href={currentUser.photoURL} className="img-thumbnail">
+            <img
+              src={currentUser.photoURL || " https://via.placeholder.com/100"}
+              width="100"
+              height="100"
+              alt="profile"
+              className="img-thumbnail"
+              />
+            </a>
+            <br />
+              <strong>Email :</strong>
+              {currentUser.email}
+            </div>
+          )}
+          <br />
+          
+          {/* <Link to="/update-profile" className="btn btn-primary w-100 mt-4">
+            Update Profile
+          </Link> */}
+        </Card.Body>
+      </Card>
+      </div>
+    </>
+  );
 }
 
-export default Dashboard
+export default Dashboard;
