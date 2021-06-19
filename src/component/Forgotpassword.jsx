@@ -26,8 +26,9 @@ function Login() {
   }
 
   return (
-    <>
-      <Card>
+    <div className="w-100 " style={{ maxWidth: "400px" ,    margin: "auto",
+          "margin-top" : " 10% "}}>
+           <Card style={{   position: "inherit "}}>
         <Card.Body>
           <h2 className="text-center mb-4">LogIn</h2>
           {massage && <Alert variant="success">{massage}</Alert>}
@@ -53,7 +54,7 @@ function Login() {
       <div className=".w-100 text-center mt-2">
         Don't have account? <Link to="/signup">Sign Up</Link>
       </div>
-    </>
+    </div>
   );
 }
 
