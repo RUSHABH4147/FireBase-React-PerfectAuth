@@ -35,7 +35,7 @@ function SignUp() {
       {
         uid: currentUser.uid,
         email: currentUser.email,
-        avatar:currentUser.photoURL
+        avatar: currentUser.photoURL,
       },
       { merge: true }
     );
@@ -43,9 +43,11 @@ function SignUp() {
 
   return (
     <>
-      <div className="w-50 " style={{ maxWidth: "400px" ,    margin: "auto",
-           marginTop  : " 10%" , }}>
-      <Card style={{   position: "inherit "}} >
+      <div
+        className="w-50 "
+        style={{ maxWidth: "400px", margin: "auto", marginTop: " 10%" }}
+      >
+        <Card style={{ position: "inherit " }}>
           <Card.Body>
             <h2 className="text-center mb-4">Sign Up</h2>
             {massage && <Alert variant="success">{massage}</Alert>}

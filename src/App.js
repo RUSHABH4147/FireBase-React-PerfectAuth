@@ -23,43 +23,43 @@ function App() {
       <Router>
         <AuthProvider>
           {/* <Navbars /> */}
-          <Sidebar/>
+          <Sidebar />
           {/* <Container
             className="d-flex align-items-center justify-content-center"
             style={{ minHeight: "100vh" }}
           > */}
-            {/* <div className="w-100" style={{maxWidth:"700px"}}> */}
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/Signup">
-                <SignUp />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <PrivateRoute exact path="/dashborad" component={Dashboard} />
-              <PrivateRoute path="/update-profile" component={UpdateProfile} />
-              <PrivateRoute path="/react" component={Qqpaper} />
-              <PrivateRoute path="/dbques" component={Questiondb} />
-              <PrivateRoute path="/Mmarksheet" component={Mmarksheet1} />
+          {/* <div className="w-100" style={{maxWidth:"700px"}}> */}
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/Signup">
+              <SignUp />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <PrivateRoute exact path="/dashborad" component={Dashboard} />
+            <PrivateRoute path="/update-profile" component={UpdateProfile} />
+            <PrivateRoute path="/react" component={Qqpaper} />
+            <PrivateRoute path="/dbques" component={Questiondb} />
+            <PrivateRoute path="/Mmarksheet" component={Mmarksheet1} />
 
-              <PrivateRoute exact path="/admindash" component={Admindash} />
-              <Route path="/forgot-password">
-                <Forgotpassword />
-              </Route>
-              <Route path="/dbques">
-                <Questiondb />
-              </Route>
-              <Route path="/exam">
-                <Exam />
-              </Route>
-              <Route path="/admin">
-                <Admin />
-              </Route>
-            </Switch>
-            {/* </div> */}
+            <PrivateRoute exact path="/admindash" component={Admindash} />
+            <Route path="/forgot-password">
+              <Forgotpassword />
+            </Route>
+            <Route path="/dbques">
+              <Questiondb />
+            </Route>
+            <Route path="/exam">
+              <Exam />
+            </Route>
+            <Route path="/admin">
+              <Admin />
+            </Route>
+          </Switch>
+          {/* </div> */}
           {/* </Container> */}
         </AuthProvider>
       </Router>

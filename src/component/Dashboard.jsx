@@ -26,48 +26,53 @@ function Dashboard() {
   }, []);
   return (
     <>
-    <div className="w-50 " style={{ maxWidth: "400px" ,    margin: "auto",
-           marginTop : " 10%" , }}>
-      <Card style={{   position: "inherit "}} >
-        <Card.Body>
-          <h2 className="text-center mb-4">Profile</h2>
-          {userdata.avatar ? ( <div>
-            <a href={userdata.avatar} className="img-thumbnail">
-              <img
-                src={userdata.avatar || " https://via.placeholder.com/100"}
-                className="img-thumbnail"
-                width="100"
-                height="100"
-                alt="databaseimg"
-              />{" "}
-            </a>
+      <div
+        className="w-50 "
+        style={{ maxWidth: "400px", margin: "auto", marginTop: " 10%" }}
+      >
+        <Card style={{ position: "inherit " }}>
+          <Card.Body>
+            <h2 className="text-center mb-4">Profile</h2>
+            {userdata.avatar ? (
+              <div>
+                <a href={userdata.avatar} className="img-thumbnail">
+                  <img
+                    src={userdata.avatar || " https://via.placeholder.com/100"}
+                    className="img-thumbnail"
+                    width="100"
+                    height="100"
+                    alt="databaseimg"
+                  />{" "}
+                </a>
+                <br />
+                <strong>Email :</strong>
+                {userdata.email}
+              </div>
+            ) : (
+              <div>
+                <a href={currentUser.photoURL} className="img-thumbnail">
+                  <img
+                    src={
+                      currentUser.photoURL || " https://via.placeholder.com/100"
+                    }
+                    width="100"
+                    height="100"
+                    alt="profile"
+                    className="img-thumbnail"
+                  />
+                </a>
+                <br />
+                <strong>Email :</strong>
+                {currentUser.email}
+              </div>
+            )}
             <br />
-            <strong>Email :</strong>
-              {userdata.email}
-            </div>
-          ) : (
-            <div>
-            <a href={currentUser.photoURL} className="img-thumbnail">
-            <img
-              src={currentUser.photoURL || " https://via.placeholder.com/100"}
-              width="100"
-              height="100"
-              alt="profile"
-              className="img-thumbnail"
-              />
-            </a>
-            <br />
-              <strong>Email :</strong>
-              {currentUser.email}
-            </div>
-          )}
-          <br />
-          
-          {/* <Link to="/update-profile" className="btn btn-primary w-100 mt-4">
+
+            {/* <Link to="/update-profile" className="btn btn-primary w-100 mt-4">
             Update Profile
           </Link> */}
-        </Card.Body>
-      </Card>
+          </Card.Body>
+        </Card>
       </div>
     </>
   );

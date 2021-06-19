@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { useAuth } from "./Authcontext";
 
 function Admindash() {
@@ -24,9 +24,11 @@ function Admindash() {
   // console.log(doccollection);
 
   return (
-    <div className="w-auto " style={{ maxWidth: "700px" ,    margin: "auto",
-    marginTop  : " 10%" , }}>
-     <Card style={{   position: "inherit "}} >
+    <div
+      className="w-auto "
+      style={{ maxWidth: "700px", margin: "auto", marginTop: " 10%" }}
+    >
+      <Card style={{ position: "inherit " }}>
         <Card.Body>
           <h2 className="text-center mb-4">
             <strong>ADMIN</strong> Dashboard

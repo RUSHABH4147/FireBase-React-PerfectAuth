@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Button, Card ,Alert } from "react-bootstrap";
+import { Button, Card, Alert } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link ,useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as grIcons from "react-icons/gr";
 import { useAuth } from "./Authcontext";
 
@@ -14,7 +14,7 @@ function Qqpaper(props) {
   const [openable, setopenable] = useState(false);
   const [currentques, setcurrentques] = useState(0);
   const [question, setquestion] = useState([]);
-  const {score,setscore, db} =useAuth();
+  const { score, setscore, db } = useAuth();
 
   // const question = [
   //   {
@@ -238,30 +238,40 @@ function Qqpaper(props) {
                 )}
 
                 {/* current question */}
-                  {/* mapping current question to there option */}
-                  <hr />
-               {question[currentques] ? <div><h6><strong>{question[currentques].ques}</strong></h6>
+                {/* mapping current question to there option */}
+                <hr />
+                {question[currentques] ? (
+                  <div>
+                    <h6>
+                      <strong>{question[currentques].ques}</strong>
+                    </h6>
 
-
-                {question[currentques].anss.map((answer ,inx ) => (
-                  <div key={inx}>
-                    <input
-                      className="form-check-input m-2"
-                      type="radio"
-                      disabled={openable}
-                      name={answer.name}
-                      value={answer.iscorrect}
-                      onClick={() => handlechange(answer.iscorrect)}
-                      {...register("ans", { required: true })}
-                    ></input>
-                    <label className="form-check-label "><b>{answer.options}</b></label>
+                    {question[currentques].anss.map((answer, inx) => (
+                      <div key={inx}>
+                        <input
+                          className="form-check-input m-2"
+                          type="radio"
+                          disabled={openable}
+                          name={answer.name}
+                          value={answer.iscorrect}
+                          onClick={() => handlechange(answer.iscorrect)}
+                          {...register("ans", { required: true })}
+                        ></input>
+                        <label className="form-check-label ">
+                          <b>{answer.options}</b>
+                        </label>
+                      </div>
+                    ))}
                   </div>
-                ))}</div>
-                : <p></p>}
-                <hr /> 
+                ) : (
+                  <p></p>
+                )}
+                <hr />
 
                 {/* diplaying correct or wrong */}
-                {disdata.ans==="correct!!!" && <Alert variant="success">{disdata.ans}</Alert> }
+                {disdata.ans === "correct!!!" && (
+                  <Alert variant="success">{disdata.ans}</Alert>
+                )}
                 <div className="BTNS">
                   <Button
                     className="btn m-2"
@@ -275,7 +285,9 @@ function Qqpaper(props) {
 
                   {currentques === question.length - 1 ? (
                     <Link to="/Mmarksheet">
-                      <Button className="btn btn-success m-2" type="submit">Finsh</Button>
+                      <Button className="btn btn-success m-2" type="submit">
+                        Finsh
+                      </Button>
                     </Link>
                   ) : (
                     <Button

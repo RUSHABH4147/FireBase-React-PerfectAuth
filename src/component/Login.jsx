@@ -17,8 +17,8 @@ function Login() {
     try {
       setError("");
       setLoading(true);
-      if(emailRef.current.value==="admin@admin.com"){
-        return setError("go to admin signin")
+      if (emailRef.current.value === "admin@admin.com") {
+        return setError("go to admin signin");
       }
       await Login(emailRef.current.value, passwordRef.current.value);
       history.push("/dashborad");
@@ -48,7 +48,7 @@ function Login() {
       {
         uid: currentUser.uid,
         email: currentUser.email,
-        avatar : currentUser.photoURL
+        avatar: currentUser.photoURL,
       },
       { merge: true }
     );
@@ -58,10 +58,12 @@ function Login() {
   return (
     <>
       {!currentUser ? (
-        <div className="w-100 " style={{ maxWidth: "400px" ,    margin: "auto",
-        marginTop : " 10% "}}>
-           <Card style={{   position: "inherit "}}>
-            <Card.Body >
+        <div
+          className="w-100 "
+          style={{ maxWidth: "400px", margin: "auto", marginTop: " 10% " }}
+        >
+          <Card style={{ position: "inherit " }}>
+            <Card.Body>
               <h2 className="text-center mb-4">LogIn</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
@@ -94,9 +96,11 @@ function Login() {
           </div>
         </div>
       ) : (
-        <div className="w-100 " style={{ maxWidth: "400px" ,    margin: "auto",
-          "margin-top" : " 10% "}}>
-           <Card style={{   position: "inherit "}}>
+        <div
+          className="w-100 "
+          style={{ maxWidth: "400px", margin: "auto", "margin-top": " 10% " }}
+        >
+          <Card style={{ position: "inherit " }}>
             <Card.Body>
               <h6>
                 <strong>Email: </strong> {currentUser.email}

@@ -13,8 +13,14 @@ function SignUp() {
   const passwordConfirmRef = useRef();
   const nameref = useRef();
 
-  const { currentUser, updatePassword, updateEmail, setfileURL, fileURL ,userdata} =
-    useAuth();
+  const {
+    currentUser,
+    updatePassword,
+    updateEmail,
+    setfileURL,
+    fileURL,
+    userdata,
+  } = useAuth();
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -71,23 +77,42 @@ function SignUp() {
   };
 
   return (
-    <div className="w-50 " style={{ maxWidth: "400px" ,    margin: "auto",
-    marginTop : " 1%" , }}>
-      <Card style={{   position: "inherit "}}>
+    <div
+      className="w-50 "
+      style={{ maxWidth: "400px", margin: "auto", marginTop: " 1%" }}
+    >
+      <Card style={{ position: "inherit " }}>
         <Card.Body>
-          <h2 className="text-center mb-4"><b>Update-Profile</b></h2>
+          <h2 className="text-center mb-4">
+            <b>Update-Profile</b>
+          </h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="user-name">
-              <Form.Label><b> Name</b></Form.Label>
-              <Form.Control type="text" ref={nameref} placeholder={userdata.name || "YOU-HAVE-NOT-SET-YOUR-USER-NAME!!"}/>
+              <Form.Label>
+                <b> Name</b>
+              </Form.Label>
+              <Form.Control
+                type="text"
+                ref={nameref}
+                placeholder={
+                  userdata.name || "YOU-HAVE-NOT-SET-YOUR-USER-NAME!!"
+                }
+              />
             </Form.Group>
             <hr />
-             {userdata && <img src={userdata.avatar ||" https://via.placeholder.com/60" }class="rounded-circle"width="60" height="60" alt="..."/>}
+            {userdata && (
+              <img
+                src={userdata.avatar || " https://via.placeholder.com/60"}
+                class="rounded-circle"
+                width="60"
+                height="60"
+                alt="..."
+              />
+            )}
             <Form.Group id="profile-pic">
-
               <label htmlFor="formFile" className="form-label">
-               <b>upload-profile-picture</b> 
+                <b>upload-profile-picture</b>
               </label>
               <input
                 className="form-control"
@@ -98,7 +123,9 @@ function SignUp() {
             </Form.Group>{" "}
             <hr />
             <Form.Group id="email">
-              <Form.Label><b>Email</b></Form.Label>
+              <Form.Label>
+                <b>Email</b>
+              </Form.Label>
               <Form.Control
                 type="email"
                 defaultValue={currentUser.email}
@@ -106,7 +133,9 @@ function SignUp() {
               />
             </Form.Group>
             <Form.Group id="password">
-              <Form.Label><b>Password</b></Form.Label>
+              <Form.Label>
+                <b>Password</b>
+              </Form.Label>
               <Form.Control
                 type="password"
                 ref={passwordRef}
@@ -114,7 +143,9 @@ function SignUp() {
               />
             </Form.Group>
             <Form.Group id="password-confirm">
-              <Form.Label><b>Password Confirmation</b></Form.Label>
+              <Form.Label>
+                <b>Password Confirmation</b>
+              </Form.Label>
               <Form.Control
                 type="password"
                 ref={passwordConfirmRef}

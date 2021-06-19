@@ -14,7 +14,6 @@ function Questiondb() {
 
   const [question, setquestion] = useState([]);
   async function addmore() {
-      
     setquestion((aa) => [
       ...aa,
       {
@@ -58,7 +57,7 @@ function Questiondb() {
   return (
     <div
       className="w-100 "
-      style={{ maxWidth: "900px", margin: "auto",  marginTop : " 7%" }}
+      style={{ maxWidth: "900px", margin: "auto", marginTop: " 7%" }}
     >
       <h1 style={{ textAlign: "center" }}>
         <strong>-Create-MCQ-test-</strong>

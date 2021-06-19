@@ -10,7 +10,7 @@ function Exam() {
       </h1>
       <div
         className="row"
-        style={{ maxWidth: "800px", margin: "auto",  marginTop : " 5%" }}
+        style={{ maxWidth: "800px", margin: "auto", marginTop: " 5%" }}
       >
         <div className="col-sm-6">
           <div
@@ -39,9 +39,7 @@ function Exam() {
           >
             <div className="card-body">
               <h5 className="card-title">example:- title </h5>
-              <p className="card-text">
-              example description
-              </p>
+              <p className="card-text">example description</p>
               <Link to="/react" className="btn btn-primary mt-4">
                 Take-Quiz
               </Link>
@@ -54,10 +52,8 @@ function Exam() {
             style={{ position: "inherit ", height: "28vh" }}
           >
             <div className="card-body">
-            <h5 className="card-title">exapmple:- title </h5>
-              <p className="card-text">
-                example description
-              </p>
+              <h5 className="card-title">exapmple:- title </h5>
+              <p className="card-text">example description</p>
               <Link to="/react" className="btn btn-primary mt-3">
                 Take-Quiz
               </Link>
@@ -71,9 +67,7 @@ function Exam() {
           >
             <div className="card-body">
               <h5 className="card-title">example</h5>
-              <p className="card-text">
-                example
-              </p>
+              <p className="card-text">example</p>
               <Link to="/react" className="btn btn-primary mt-3">
                 Take-Quiz
               </Link>
