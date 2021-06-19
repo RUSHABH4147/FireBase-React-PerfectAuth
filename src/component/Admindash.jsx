@@ -24,8 +24,8 @@ function Admindash() {
   // console.log(doccollection);
 
   return (
-    <div className="w-50 " style={{ maxWidth: "700px" ,    margin: "auto",
-    "margin-top" : " 10%" , }}>
+    <div className="w-auto " style={{ maxWidth: "700px" ,    margin: "auto",
+    marginTop  : " 10%" , }}>
      <Card style={{   position: "inherit "}} >
         <Card.Body>
           <h2 className="text-center mb-4">

@@ -6,7 +6,7 @@ function Mmarksheet1(props){
 
     return(
         <div className="w-100 " style={{ maxWidth: "600px" ,    margin: "auto",
-        "margin-top" : " 3%" , }}>
+        marginTop  : " 3%" , }}>
             <h1 style={{textAlign:"center"}}><strong><h1>RESULT</h1></strong></h1>
 
          <Card style={{   position: "inherit "}} >

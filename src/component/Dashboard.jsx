@@ -27,7 +27,7 @@ function Dashboard() {
   return (
     <>
     <div className="w-50 " style={{ maxWidth: "400px" ,    margin: "auto",
-          "margin-top" : " 10%" , }}>
+           marginTop : " 10%" , }}>
       <Card style={{   position: "inherit "}} >
         <Card.Body>
           <h2 className="text-center mb-4">Profile</h2>

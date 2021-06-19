@@ -10,7 +10,7 @@ function Exam() {
       </h1>
       <div
         className="row"
-        style={{ maxWidth: "800px", margin: "auto", "margin-top": " 5%" }}
+        style={{ maxWidth: "800px", margin: "auto",  marginTop : " 5%" }}
       >
         <div className="col-sm-6">
           <div
